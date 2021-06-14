@@ -6,3 +6,4 @@ mensageria\App.class
 br\com\dimension\aplicacao\Dimension.class
 br\com\dimension\conexao\DimensionConexao.class
 br\com\dimension\insercao\Insercao.class
+.netbeans_automatic_build
