@@ -102,7 +102,7 @@ if [[ ! "$(sudo docker ps -aqf "name=ContainerDimensionBD")" ]]
             cd ..            
             #permissão para que funcione o docker.sock - senão nega e da erro
             sudo chmod 666 /var/run/docker.sock
-            docker run -d -p 3306:3306 --name ContainerDimensionBD -e "MYSQL_DATABASE=dimensionBD" -e "MYSQL_ROOT_PASSWORD=urubu100" mysql
+            sudo docker run -d -p 3306:3306 --name ContainerDimensionBD -e "MYSQL_DATABASE=dimensionBD" -e "MYSQL_ROOT_PASSWORD=urubu100" mysql
             #sudo docker run -d -p 3306:3306 --name ContainerDimensionBD -e "MYSQL_DATABASE=dimensionBD" -e "MYSQL_ROOT_PASSWORD=urubu100" mysql:5.7
             
             echo -e "${YELLOW}[Dimension Bot]:${ENDC} Configuração completa do MySQL \o/ "
@@ -203,3 +203,8 @@ echo -e "${YELLOW}[Dimension Bot]:${ENDC} Obrigada por escolher a aplicação ${
 # delete directory with file = rm -r nameDir (y y)
 # delete file = rm filename
 #comando de execução no bash do container = sudo docker exec -it  ${CONTID} bash
+# ______ Se o problema for no build do mySQL e a porta da erro ____
+# ver se a porta está sendo utilizada = sudo lsof -i -P -n | grep <port number>
+# Stop container on current dir if there is a docker-compose.yml = docker-compose down
+# Remove all containers = docker rm -fv $(docker ps -aq)  
+# Matar o serviço que esta utilizando =  sudo kill <process id>
