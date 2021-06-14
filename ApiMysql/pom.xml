@@ -76,5 +76,5 @@
    
     <!--    com.mysql.cj.jdbc.driver                            -->
     <!--       jdbc:mysql://localhost:3306/dimension  -->
-    <name>dimensionFINAL</name>
+    <name>dimensionAWS</name>
 </project>
