@@ -23,6 +23,7 @@ br\com\dimension\insercao\Log.class
 mensageria\ConexaoSlack.class
 br\com\bandtec\dimension2\Cadastro$2.class
 br\com\bandtec\dimension2\Login$4.class
+br\com\dimension\aplicacao\Dimension$1.class
 br\com\bandtec\dimension2\Cadastro$5.class
 br\com\dimension\conexao\DimensionConexao.class
 br\com\bandtec\dimension2\Cadastro$8.class
