@@ -8,6 +8,15 @@ public class Insercao {
     private Date data;
     private Double dadosColetados;
     private String nomeComponente;
+    private Integer fkMaquina;
+
+    public Integer getFkMaquina() {
+        return fkMaquina;
+    }
+
+    public void setFkMaquina(Integer fkMaquina) {
+        this.fkMaquina = fkMaquina;
+    }
     
     SimpleDateFormat formatoDH = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 

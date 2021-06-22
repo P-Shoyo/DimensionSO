@@ -15,6 +15,16 @@ public class Componentes {
     private String memoriaRam;
     private String so;
     private String placaVideo;
+    private Integer fkMaquina;
+
+    public Integer getFkMaquina() {
+        return fkMaquina;
+    }
+
+    public void setFkMaquina(Integer fkMaquina) {
+        this.fkMaquina = fkMaquina;
+    }
+
 
     public Componentes() {
         this.idComponente = idComponente;

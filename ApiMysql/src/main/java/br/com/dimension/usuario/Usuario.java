@@ -6,6 +6,15 @@ public class Usuario {
         private Integer idUsuario;
         private String nomeUsuario;
         private String sobrenomeUsuario;
+        private String cpfUsuario;
+
+    public String getCpfUsuario() {
+        return cpfUsuario;
+    }
+
+    public void setCpfUsuario(String cpfUsuario) {
+        this.cpfUsuario = cpfUsuario;
+    }
 
     public String getSobrenomeUsuario() {
         return sobrenomeUsuario;

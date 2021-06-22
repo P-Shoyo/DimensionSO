@@ -5,6 +5,7 @@ br\com\bandtec\dimension2\Login$3.class
 br\com\dimension\aplicacao\Dimension.class
 br\com\bandtec\dimension2\configuracao$3.class
 br\com\bandtec\dimension2\configuracao$4.class
+mensageria\AppSlack.class
 br\com\bandtec\dimension2\Cadastro$6.class
 br\com\bandtec\dimension2\Cadastro$7.class
 br\com\bandtec\dimension2\Cadastro$1.class
@@ -13,6 +14,7 @@ br\com\bandtec\dimension2\Login.class
 mensageria\PostMessageService.class
 br\com\bandtec\componentes\Componentes.class
 br\com\dimension\maquina\Maquina.class
+br\com\bandtec\dimension2\configuracao$6.class
 br\com\bandtec\dimension2\Cadastro$4.class
 br\com\bandtec\dimension2\configuracao.class
 br\com\bandtec\dimension2\configuracao$2.class
@@ -21,7 +23,6 @@ br\com\dimension\insercao\Log.class
 mensageria\ConexaoSlack.class
 br\com\bandtec\dimension2\Cadastro$2.class
 br\com\bandtec\dimension2\Login$4.class
-br\com\dimension\aplicacao\Dimension$1.class
 br\com\bandtec\dimension2\Cadastro$5.class
 br\com\dimension\conexao\DimensionConexao.class
 br\com\bandtec\dimension2\Cadastro$8.class

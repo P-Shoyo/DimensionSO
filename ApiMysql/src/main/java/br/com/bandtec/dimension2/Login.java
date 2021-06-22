@@ -1,13 +1,20 @@
 package br.com.bandtec.dimension2;
 
+import br.com.bandtec.componentes.Componentes;
+import br.com.dimension.aplicacao.Dimension;
 import br.com.dimension.dao.DimensionDAO;
+import br.com.dimension.maquina.Maquina;
 import br.com.dimension.usuario.Usuario;
+import com.github.britooo.looca.api.core.Looca;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.io.IOException;
-import java.net.URI;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.io.IOException;
+import java.net.URI;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -40,8 +47,6 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         txtFacaLogin = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        btnSlack = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
         txtEsqueceu = new javax.swing.JLabel();
         txtCadastre = new javax.swing.JLabel();
@@ -113,22 +118,7 @@ public class Login extends javax.swing.JFrame {
 
         txtFacaLogin.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         txtFacaLogin.setForeground(new java.awt.Color(0, 0, 0));
-        txtFacaLogin.setText("Faça seu login:");
-
-        jLabel5.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("OU");
-
-        btnSlack.setBackground(new java.awt.Color(204, 204, 204));
-        btnSlack.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        btnSlack.setForeground(new java.awt.Color(102, 102, 102));
-        btnSlack.setText("Login com Slack");
-        btnSlack.setBorder(null);
-        btnSlack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSlackActionPerformed(evt);
-            }
-        });
+        txtFacaLogin.setText("Faï¿½a seu login:");
 
         btnLogin.setBackground(new java.awt.Color(204, 204, 204));
         btnLogin.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -147,7 +137,7 @@ public class Login extends javax.swing.JFrame {
 
         txtCadastre.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         txtCadastre.setForeground(new java.awt.Color(0, 0, 0));
-        txtCadastre.setText("Não tem uma conta?");
+        txtCadastre.setText("Nï¿½o tem uma conta?");
 
         senhaDimension.setBackground(new java.awt.Color(235, 231, 225));
         senhaDimension.setForeground(new java.awt.Color(102, 102, 102));
@@ -196,56 +186,47 @@ public class Login extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(121, 121, 121)
+                                .addGap(156, 156, 156)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGap(62, 62, 62)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(btnSlack, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGap(53, 53, 53)
-                                            .addComponent(txtEsqueceu))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                            .addGap(35, 35, 35)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(senhaDimension, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                .addComponent(jLabel7)
-                                                                .addComponent(txtFacaLogin))
-                                                            .addGap(29, 29, 29))))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(74, 74, 74)))))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtCadastre)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel12)
-                                                .addGap(8, 8, 8)))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnCadastro)
-                                            .addComponent(jLabel14))
-                                        .addGap(12, 12, 12)))))
-                        .addGap(35, 35, 35)
+                                    .addComponent(senhaDimension, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel7)
+                                            .addComponent(txtFacaLogin))
+                                        .addGap(29, 29, 29))
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(82, 82, 82)
                         .addComponent(jLabel9)
-                        .addGap(80, 80, 80))
+                        .addGap(33, 33, 33))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(205, 205, 205)
-                                .addComponent(jLabel6))
-                            .addComponent(jLabel8))
+                        .addGap(205, 205, 205)
+                        .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addComponent(txtEsqueceu))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCadastre)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel12)
+                                        .addGap(8, 8, 8)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnCadastro)
+                                    .addComponent(jLabel14))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(182, 182, 182)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,42 +237,48 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel7))
-                    .addComponent(jLabel9))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel7))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtFacaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(23, 23, 23)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(senhaDimension, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSlack, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(30, 30, 30)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtEsqueceu)
-                .addGap(16, 16, 16)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCadastre)
-                            .addComponent(btnCadastro))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel13)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel4)
-                                    .addGap(56, 56, 56))
-                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel12))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel4)
+                                        .addGap(56, 56, 56))
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtEsqueceu)
+                                .addGap(16, 16, 16)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtCadastre)
+                                    .addComponent(btnCadastro))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel12))
+                                .addGap(62, 62, 62)))
                         .addGap(160, 160, 160))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
@@ -339,35 +326,73 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
-    private void btnSlackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSlackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSlackActionPerformed
-
     // validaÃ§Ã£o de email com Regex - email@email.com
     private static final String EMAIL_PATTERN = 
     "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
     + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-    
+
     public void autenticarDados(String email, String senha) throws IOException{
         if ("".equals(email) || (!email.matches(EMAIL_PATTERN))) {
             txtEmail.setText("");
 //            txtEmail.setBackground(Color.red);                
-            
+
         } else {
             DimensionDAO logUsuario = new DimensionDAO();
-            
+
             for (Usuario usuario : logUsuario.pegarUsuario()) {
-                
+
                 if ((senha.equals(usuario.getSenha()) && (email.equals(usuario.getUsuario())))) {
                     txtEmail.setBackground(Color.green);
                     senhaDimension.setBackground(Color.green);
-                     try {
-         
-        Desktop.getDesktop().browse(new URI("https://zealous-mushroom-09a014810.azurestaticapps.net/analytics"));
-         
-    } catch (Exception e1) {
-        e1.printStackTrace();
-    }
+                    try {
+                        Integer usuarioId = usuario.getIdUsuario();
+
+                        Desktop.getDesktop().browse(new URI("https://zealous-mushroom-09a014810.azurestaticapps.net/login"));
+
+                        Maquina maquina = new Maquina();
+                        Timer timer = new Timer();
+                        DimensionDAO logComponente = new DimensionDAO();
+                        for (Componentes componentes : logComponente.pegarComponente(usuarioId, email, senha)){
+                          
+                            final long intervalo = (1000*5);
+
+                            TimerTask tarefa = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        maquina.memoria(componentes.getFkMaquina());
+                                    } catch (IOException ex) {
+                                        Logger.getLogger(Dimension.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                    try {
+                                        maquina.placaVideo(componentes.getFkMaquina());
+                                    } catch (IOException ex) {
+                                        Logger.getLogger(Dimension.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                    try {
+                                        maquina.processador(componentes.getFkMaquina());
+                                    } catch (IOException ex) {
+                                        Logger.getLogger(Dimension.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+//                                    try {
+//                                        maquina.sistema(componentes.getFkMaquina());
+//                                    } catch (IOException ex) {
+//                                        Logger.getLogger(Dimension.class.getName()).log(Level.SEVERE, null, ex);
+//                                    }
+//                                    try {
+//                                        maquina.processos(componentes.getFkMaquina());
+//
+////                System.exit(0); //To change body of generated methods, choose Tools | Templates.
+//                                    } catch (IOException ex) {
+//                                        Logger.getLogger(Dimension.class.getName()).log(Level.SEVERE, null, ex);
+//                                    }
+                                }
+                            };
+                            timer.scheduleAtFixedRate(tarefa, 0,intervalo);
+                        }
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
                     configuracao config = new configuracao();
                     config.setVisible(true);
                     dispose();
@@ -427,7 +452,6 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastro;
     private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnSlack;
     private javax.swing.JLabel img2;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
@@ -441,7 +465,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

@@ -168,24 +168,6 @@ fi
 
 echo -e "${YELLOW}[Dimension Bot]:${ENDC} Obrigada por escolher a aplicação ${BLUEBOLD}Dimension${ENDC} ${RED}♥${ENDC}"
 
-# this version made by: Priscila Choi
-#        ...                                     .    
-#     xH88"`~ .x8X      .uef^"                  @88>  
-#   :8888   .f"8888Hf :d88E              u.     %8P   
-#  :8888>  X8L  ^""`  `888E        ...ue888b     .    
-#  X8888  X888h        888E .z8k   888R Y888r  .@88u  
-#  88888  !88888.      888E~?888L  888R I888> ''888E` 
-#  88888   %88888      888E  888E  888R I888>   888E  
-#  88888 '> `8888>     888E  888E  888R I888>   888E  
-#  `8888L %  ?888   !  888E  888E u8888cJ888    888E  
-#   `8888  `-*""   /   888E  888E  "*888*P"     888&  
-#     "888.      :"   m888N= 888>    'Y"        R888" 
-#       `""***~"`      `Y"   888                 ""   
-#                           J88"                      
-#                           @%                        
-#                         :"                          
-
-
 #===================================================================
 # Todos os direitos reservados para os autores: Grupo 10 - Dimension
 # Sob licença Creative Commons @2021
